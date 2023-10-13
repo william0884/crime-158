@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model CityData {
+  id          Int       @id @default(autoincrement())
+  cityName    String
+  latitude    Float
+  longitude   Float
+  year2013_2014 Int
+  year2014_2015 Int
+  year2015_2016 Int
+  year2016_2017 Int
+  year2017_2018 Int
+  year2018_2019 Int
+  year2019_2020 Int
+  year2020_2021 Int
+  year2021_2022 Int
+  year2022_2023 Int
+}
