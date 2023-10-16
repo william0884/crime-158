@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -8,25 +8,8 @@ const Map2 = () => {
   const mapRef = useRef()
   const position = [-36.848461, 174.763336]
 
-  const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(true)
- 
-  useEffect(() => {
-    fetch('/api/CityData')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setLoading(false)
-      })
-  }, [])
- 
-  if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No profile data</p>
-
-  console.log(data)
   return (
     <>
-
       <div className='container'>
         <div className='container'>
           <h1 className='text-center-mt-5'>Crime</h1>
