@@ -11,7 +11,7 @@ const Map2 = () => {
 
   const ICON = icon({
     iconUrl: "/crime.svg",
-    iconSize: [32, 32],
+    iconSize: [16, 16],
   })
 
   useEffect(() => {
