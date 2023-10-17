@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { icon } from "leaflet"
+
 
 const Map2 = () => {
   const [center, setCenter] = useState({ lat: -41.838875, lng: 171.7799 });
   const ZOOM_LEVEL = 6;
   const [geoJsonData, setGeoJsonData] = useState(null);
+
+  const ICON = icon({
+    iconUrl: "/crime.svg",
+    iconSize: [32, 32],
+  })
 
   useEffect(() => {
     fetch('/output.geojson') // Replace with the correct path to your GeoJSON file
@@ -28,6 +35,7 @@ const Map2 = () => {
               />
               {geoJsonData && geoJsonData.features.map((feature, index) => (
                 <Marker
+                  icon={ICON}
                   key={index}
                   position={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]}
                 >
